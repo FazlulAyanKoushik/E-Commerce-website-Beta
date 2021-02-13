@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+            <h3 class="alert text-center mt-1 border rounded" style="background-color: rgb(14, 101, 107); color: rgb(248, 248, 248);">Create an Account</h3>
+            <div class="form-group">
+                <form action="/signup" method="POST">
+                    {% csrf_token %}
+                    {% if error %}
+                        <div class="alert alert-danger text-center" role="alert">
+                            {{error}}
+                    </div>
+                    {% endif %}
+                    <div class="form-group">
+                        <label for="">First Name</label>
+                        <input id="" class="form-control form-control-sm" type="text"
+                         name="firstname" placeholder="John" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="">Last Name</label>
+                        <input id="" class="form-control form-control-sm" type="text"
+                         name="lastname" placeholder="Dae" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input class="form-control form-control-sm" type="tel" id="phone" name="phoneno" 
+                        pattern="[0-9]{3}[0-9]{4}[0-9]{4}" placeholder="01712******" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="">Email Address</label>
+                        <input id="" class="form-control form-control-sm" type="email"
+                         name="email" placeholder="example@gmail.com" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input id="" class="form-control form-control-sm" type="password"
+                         name="password" placeholder="******" required>
+                    </div>
+    
+                    <div class="form-group col-lg-4 mx-auto">
+                      <input type="submit" class="btn  btn-info font-weight-bold" value="Submit">
+                    </div>
+    
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
